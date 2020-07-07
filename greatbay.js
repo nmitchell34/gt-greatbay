@@ -24,15 +24,23 @@ var questions = [
     type: "list",
     message: "Would you like to Post, Bid, or Exit?",
     name: "postOrBid",
-    choices: ["Post An Item", "Bid An Item", "Exit"],
+    choices: ["Post An Item", "Bid On An Item", "Exit"],
   },
 ];
-
+var postQuestions = []
+var bidQuestions = []
 function init() {
   return inquirer.prompt(questions);
 }
 
-init().then(function (res) {});
+init().then(function (res) {
+  console.log(res.postOrBid)
+  if (res.postOrBid == "Post An Item"){
+    inquirer.prompt(postQuestions)
+  }else if (res.postOrBid=="Bid On An Item"){
+    inquirer.prompt(bidQuestions)
+  }else{}
+});
 
 function postFunc() {}
 
