@@ -1,0 +1,23 @@
+{
+  "name": "gt-greatbay",
+  "version": "1.0.0",
+  "description": "**Instructions**",
+  "main": "greatbay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmitchell34/gt-greatbay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmitchell34/gt-greatbay/issues"
+  },
+  "homepage": "https://github.com/nmitchell34/gt-greatbay#readme",
+  "dependencies": {
+    "inquirer": "^7.3.0"
+  }
+}
