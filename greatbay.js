@@ -1,23 +1,23 @@
-const mysql = require('mysql');
-const inquirer = require('inquirer');
+const mysql = require("mysql");
+const inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
-  host: 'localhost',
+  host: "localhost",
 
   // Your port; if not 3306
   port: 3306,
 
   // Your username
-  user: 'root',
+  user: "root",
 
   // Your password
-  password: '',
-  database: 'great_bay_DB', // project_db
+  password: "",
+  database: "great_bay_DB", // project_db
 });
 
 connection.connect(function (err) {
   if (err) throw err;
-  console.log('connected as id ' + connection.threadId);
+  console.log("connected as id " + connection.threadId);
   connection.end();
 });
 
@@ -29,7 +29,6 @@ var questions = [
     choices: ["Post An Item", "Bid On An Item", "Exit"],
   },
 ];
-
 
 var postQuestions = [
   {
@@ -58,7 +57,6 @@ var bidQuestions = [
   },
 ];
 
-
 function init() {
   return inquirer.prompt(questions);
 }
@@ -69,17 +67,22 @@ init().then(function (res) {
     postFunc();
   } else if (res.postOrBid == "Bid On An Item") {
     bidFunc();
-  } else {exit()
+  } else {
+    exit();
   }
 });
 
 function postFunc() {
-  inquirer.prompt(postQuestions);
+  inquirer.prompt(postQuestions).then(createProduct(res));
 }
 
 function bidFunc() {
   inquirer.prompt(bidQuestions);
 }
+
+
+function exit() {}
+
 
 function createProduct(res) {
   console.log("Inserting a new product...\n");
@@ -91,9 +94,9 @@ function createProduct(res) {
       bid_price: res.bidPrice,
       available: true,
     },
-    function(err, res) {
+    function (err, res) {
       if (err) throw err;
       console.log(res.affectedRows + " product inserted!\n");
     }
   );
-function exit() {}
+}
