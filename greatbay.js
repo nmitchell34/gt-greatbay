@@ -37,7 +37,18 @@ var postQuestions = [
     message: "What item would you like to post?",
     name: "newItem",
   },
+  {
+    type: "input",
+    message: "What is the starting bid price?",
+    name: "bidPrice",
+  },
+  {
+    type: "input",
+    message: "What is your username?",
+    name: "userName",
+  },
 ];
+
 var bidQuestions = [
   {
     type: "list",
@@ -58,7 +69,7 @@ init().then(function (res) {
     postFunc();
   } else if (res.postOrBid == "Bid On An Item") {
     bidFunc();
-  } else {
+  } else {exit()
   }
 });
 
@@ -70,14 +81,14 @@ function bidFunc() {
   inquirer.prompt(bidQuestions);
 }
 
-function createProduct() {
+function createProduct(res) {
   console.log("Inserting a new product...\n");
   var query = connection.query(
     "INSERT INTO products SET ?",
     {
-      user_name: "Rocky Road",
-      item: "baseball",
-      bid_price: 50,
+      user_name: res.userName,
+      item: res.newItem,
+      bid_price: res.bidPrice,
       available: true,
     },
     function(err, res) {
