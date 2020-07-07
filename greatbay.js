@@ -37,7 +37,7 @@ var postQuestions = [
     name: "newItem",
   },
   {
-    type: "input",
+    type: "number",
     message: "What is the starting bid price?",
     name: "bidPrice",
   },
@@ -80,8 +80,16 @@ function bidFunc() {
       name: "bidList",
       choices: [],
     },
+    {
+      type: "number",
+      message: "How much would you like to bid?",
+      name: "bidAmt",
+    }
   ];
-  inquirer.prompt(bidQuestions);
+  inquirer.prompt(bidQuestions).then(function(res){
+    if (res.bidAmt<'QUERY PRICE HERE'){}
+  });
+
 }
 
 
