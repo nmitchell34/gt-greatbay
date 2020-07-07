@@ -58,7 +58,7 @@ init().then(function (res) {
     postFunc();
   } else if (res.postOrBid == "Bid On An Item") {
     bidFunc();
-  } else {
+  } else {exit()
   }
 });
 
