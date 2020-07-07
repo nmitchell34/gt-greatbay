@@ -29,8 +29,25 @@ var questions = [
     choices: ["Post An Item", "Bid On An Item", "Exit"],
   },
 ];
-var postQuestions = [];
-var bidQuestions = [];
+
+
+var postQuestions = [
+  {
+    type: "input",
+    message: "What item would you like to post?",
+    name: "newItem",
+  },
+];
+var bidQuestions = [
+  {
+    type: "list",
+    message: "What would you like to bid on?",
+    name: "bidList",
+    choices: [],
+  },
+];
+
+
 function init() {
   return inquirer.prompt(questions);
 }
@@ -46,11 +63,11 @@ init().then(function (res) {
 });
 
 function postFunc() {
-  inquirer.prompt(postQuestions)
+  inquirer.prompt(postQuestions);
 }
 
 function bidFunc() {
-  inquirer.prompt(bidQuestions)
+  inquirer.prompt(bidQuestions);
 }
 
 function exit() {}
