@@ -1,13 +1,13 @@
-DROP DATABASE IF EXISTS auction_Items;
+DROP DATABASE IF EXISTS great_bay_DB;
 
-CREATE DATABASE auction_Items;
+CREATE DATABASE great_bay_DB;
 
-USE auction_Items;
+USE great_bay_DB;
 
 CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT,
-  flavor VARCHAR(45) NULL,
-  price DECIMAL(10,2) NULL,
-  quantity INT NULL,
+  item VARCHAR(45) NULL,
+  bid_price DECIMAL(10,2) NULL,
+  available BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
