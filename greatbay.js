@@ -48,14 +48,7 @@ var postQuestions = [
   },
 ];
 
-var bidQuestions = [
-  {
-    type: "list",
-    message: "What would you like to bid on?",
-    name: "bidList",
-    choices: [],
-  },
-];
+
 
 function init() {
   return inquirer.prompt(questions);
@@ -77,6 +70,17 @@ function postFunc() {
 }
 
 function bidFunc() {
+// Query for existing items goes here"
+
+
+  var bidQuestions = [
+    {
+      type: "list",
+      message: "What would you like to bid on?",
+      name: "bidList",
+      choices: [],
+    },
+  ];
   inquirer.prompt(bidQuestions);
 }
 
