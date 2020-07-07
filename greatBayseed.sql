@@ -11,3 +11,10 @@ CREATE TABLE products (
   available BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
+
+-- Sample Queries - Selects all products and sorts by bid price descending in price. 
+SELECT * FROM products
+WHERE available=TRUE
+ORDER BY bid_price DESC;
+
+
