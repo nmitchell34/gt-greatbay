@@ -20,9 +20,15 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 -- Sample Queries - 
+
 -- Selects all products and sorts by bid price descending in price. 
 -- SELECT * FROM products
 -- WHERE available=TRUE
 -- ORDER BY bid_price DESC;
+
+-- SELECT * FROM users
+-- ORDER BY id ASC;
+
+
 
 
