@@ -53,4 +53,19 @@ function bidFunc() {
   inquirer.prompt(bidQuestions)
 }
 
+function createProduct() {
+  console.log("Inserting a new product...\n");
+  var query = connection.query(
+    "INSERT INTO products SET ?",
+    {
+      user_name: "Rocky Road",
+      item: "baseball",
+      bid_price: 50,
+      available: true,
+    },
+    function(err, res) {
+      if (err) throw err;
+      console.log(res.affectedRows + " product inserted!\n");
+    }
+  );
 function exit() {}
