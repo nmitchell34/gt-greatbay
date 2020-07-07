@@ -27,23 +27,28 @@ var questions = [
     choices: ["Post An Item", "Bid On An Item", "Exit"],
   },
 ];
-var postQuestions = []
-var bidQuestions = []
+var postQuestions = [];
+var bidQuestions = [];
 function init() {
   return inquirer.prompt(questions);
 }
 
 init().then(function (res) {
-  console.log(res.postOrBid)
-  if (res.postOrBid == "Post An Item"){
-    inquirer.prompt(postQuestions)
-  }else if (res.postOrBid=="Bid On An Item"){
-    inquirer.prompt(bidQuestions)
-  }else{}
+  console.log(res.postOrBid);
+  if (res.postOrBid == "Post An Item") {
+    postFunc();
+  } else if (res.postOrBid == "Bid On An Item") {
+    bidFunc();
+  } else {
+  }
 });
 
-function postFunc() {}
+function postFunc() {
+  inquirer.prompt(postQuestions)
+}
 
-function bidFunc() {}
+function bidFunc() {
+  inquirer.prompt(bidQuestions)
+}
 
 function exit() {}
